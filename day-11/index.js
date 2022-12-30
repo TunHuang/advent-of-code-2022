@@ -10,9 +10,9 @@ const lineSplittedBySpace = eachSplittedByLinebreak.map((monkey) =>
 const inputArrayOfObjects = lineSplittedBySpace.map((monkey) => ({
   startingItems: monkey[1].slice(2).map((str) => parseInt(str)),
   operation: monkey[2].slice(-2),
-  test: +monkey[3].slice(-1),
-  indexTrue: +monkey[4].slice(-1),
-  indexFalse: +monkey[5].slice(-1),
+  test: +monkey[3].at(-1),
+  indexTrue: +monkey[4].at(-1),
+  indexFalse: +monkey[5].at(-1),
 }));
 // Needed for Part 2
 const commonMultipleOfTestDivisor = inputArrayOfObjects.reduce(
@@ -71,7 +71,7 @@ inputArrayOfObjects.forEach((input) =>
     )
   )
 );
-// console.log(monkeysArray);
+console.log(monkeysArray);
 
 for (let i = 0; i < 10000; i++) {
   monkeysArray.forEach((monkey) => monkey.play());
